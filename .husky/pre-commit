@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+./vendor/bin/pint --test ||
+(
+  echo 'Pint errors found. Please fix them before committing.'
+  false;
+)
+
+php artisan test ||
+(
+  echo 'Tests failed. Please fix them before committing.'
+  false;
+)
+
+echo 'Committing this now. 🚀'
