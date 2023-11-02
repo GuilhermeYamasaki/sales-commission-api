@@ -7,10 +7,11 @@
   false;
 )
 
-php artisan test ||
+./vendor/bin/sail artisan test ||
 (
   echo 'Tests failed. Please fix them before committing.'
   false;
 )
 
 echo 'Committing this now. 🚀'
+
