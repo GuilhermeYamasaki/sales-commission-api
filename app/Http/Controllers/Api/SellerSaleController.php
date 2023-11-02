@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\SellerSalePatchRequest;
+use App\Jobs\SendTotalSalesDayOfSellerJob;
 use App\Services\Interfaces\SaleServiceInterface;
 use Exception;
 use Illuminate\Http\Response;
@@ -31,5 +33,12 @@ class SellerSaleController extends Controller
 
             return response()->json(['message' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
         }
+    }
+
+    public function patch(SellerSalePatchRequest $request, int $id)
+    {
+        SendTotalSalesDayOfSellerJob::dispatch($id, $request->day);
+
+        return response()->json(['message' => 'Email is being processed.'], Response::HTTP_OK);
     }
 }

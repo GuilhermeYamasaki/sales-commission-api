@@ -174,6 +174,7 @@ return [
          */
         App\Providers\Services\SellerServiceProvider::class,
         App\Providers\Services\SaleServiceProvider::class,
+        App\Providers\Services\SellerSaleServiceProvider::class,
 
         /*
          * Repositories

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 interface SaleRepositoryInterface
@@ -11,4 +12,6 @@ interface SaleRepositoryInterface
     public function getAllSales(): Collection;
 
     public function getSalesBySeller(int $id): object;
+
+    public function getSalesOfDayBySeller(int $sellerId, Carbon $day): Collection;
 }

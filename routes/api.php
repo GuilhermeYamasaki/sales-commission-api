@@ -26,6 +26,7 @@ Route::prefix('sellers')->group(function () {
     Route::delete('/{id}', [SellerController::class, 'delete'])->name('sellers.delete');
     Route::post('/', [SellerController::class, 'store'])->name('sellers.store');
     Route::get('/{id}/sales', [SellerSaleController::class, 'show'])->name('sellers.sales.show');
+    Route::patch('/{id}/sales', [SellerSaleController::class, 'patch'])->name('sellers.sales.patch');
 
 });
 
