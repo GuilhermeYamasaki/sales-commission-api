@@ -15,4 +15,6 @@ interface SellerRepositoryInterface
     public function getAllSellers(): Collection;
 
     public function deleteSeller(int $id): void;
+
+    public function updateSellerData(array $data): void;
 }

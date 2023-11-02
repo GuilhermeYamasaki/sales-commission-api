@@ -10,5 +10,7 @@ interface SellerServiceInterface
 
     public function getAllSellers(): Collection;
 
+    public function updateSellerData(array $data): void;
+
     public function deleteSeller(int $id): void;
 }

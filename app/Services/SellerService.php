@@ -35,4 +35,15 @@ class SellerService implements SellerServiceInterface
     {
         $this->sellerRepository->deleteSeller($id);
     }
+
+    public function updateSellerData(array $data): void
+    {
+        $existEmail = $this->sellerRepository->findWithEmail($data['email']);
+
+        if ($existEmail && $existEmail->id != $data['id']) {
+            throw new RuntimeException('Email already exists');
+        }
+
+        $this->sellerRepository->updateSellerData($data);
+    }
 }

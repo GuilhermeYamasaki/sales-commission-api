@@ -38,4 +38,9 @@ class SellerRepository implements SellerRepositoryInterface
     {
         $this->model->find($id)->delete();
     }
+
+    public function updateSellerData(array $data): void
+    {
+        $this->model->find($data['id'])->update($data);
+    }
 }
