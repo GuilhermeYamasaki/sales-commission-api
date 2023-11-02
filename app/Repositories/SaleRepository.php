@@ -19,7 +19,6 @@ class SaleRepository implements SaleRepositoryInterface
         return $this->model->create($data);
     }
 
-    //não preciso achar onde saller_id pois ele sempre vai existir confirmar
     public function getAllSales(): Collection
     {
         return $this->model->all();

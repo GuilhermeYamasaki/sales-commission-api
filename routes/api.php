@@ -24,13 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('sellers')->group(function () {
     Route::get('/', [SellerController::class, 'index'])->name('sellers.index');
     Route::delete('/{id}', [SellerController::class, 'delete'])->name('sellers.delete');
-    Route::post('/', [SellerController::class, 'store'])->name('sellers.store'); //teste feito
+    Route::post('/', [SellerController::class, 'store'])->name('sellers.store');
     Route::get('/{id}/sales', [SellerSaleController::class, 'show'])->name('sellers.sales.show');
 
 });
 
 Route::prefix('sales')->group(function () {
     Route::get('/', [SaleController::class, 'index'])->name('sales.index');
-    // Route::get('/{id}', [SaleController::class, 'show'])->name('sales.show');
     Route::post('/', [SaleController::class, 'store'])->name('sales.store');
 });
