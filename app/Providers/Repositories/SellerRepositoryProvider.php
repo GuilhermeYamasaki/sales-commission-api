@@ -2,8 +2,8 @@
 
 namespace App\Providers\Repositories;
 
-use App\Services\Contracts\SellerRepositoryInterface;
-use App\Services\SellerRepository;
+use App\Repositories\Interfaces\SellerRepositoryInterface;
+use App\Repositories\SellerRepository;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 

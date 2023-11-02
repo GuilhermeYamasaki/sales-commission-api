@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\Interfaces\SellerRepositoryInterface;
 use App\Services\Interfaces\SellerServiceInterface;
+use Illuminate\Support\Collection;
 use RuntimeException;
 
 class SellerService implements SellerServiceInterface
@@ -23,5 +24,15 @@ class SellerService implements SellerServiceInterface
         }
 
         $this->sellerRepository->register($data);
+    }
+
+    public function getAllSellers(): Collection
+    {
+        return $this->sellerRepository->getAllSellers()->makeHidden(['created_at', 'updated_at', 'deleted_at']);
+    }
+
+    public function deleteSeller(int $id): void
+    {
+        $this->sellerRepository->deleteSeller($id);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Providers\Services;
 
-use App\Services\Contracts\SellerServiceInterface;
+use App\Services\Interfaces\SellerServiceInterface;
 use App\Services\SellerService;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;

@@ -35,4 +35,38 @@ class SellerController extends Controller
             return response()->json(['message' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
+
+    public function index()
+    {
+        try {
+            $sellers = $this->sellerService->getAllSellers();
+
+            return response()->json(['sellers' => $sellers], Response::HTTP_OK);
+
+        } catch (Exception $exception) {
+
+            Log::error(null, [
+                'exception' => $exception,
+            ]);
+
+            return response()->json(['message' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    public function delete(int $id)
+    {
+        try {
+            $this->sellerService->deleteSeller($id);
+
+            return response()->json(['message' => 'Seller deleted successfully'], Response::HTTP_OK);
+
+        } catch (Exception $exception) {
+
+            Log::error(null, [
+                'exception' => $exception,
+            ]);
+
+            return response()->json(['message' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
 }
