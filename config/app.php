@@ -173,11 +173,13 @@ return [
          * Services
          */
         App\Providers\Services\SellerServiceProvider::class,
+        App\Providers\Services\SaleServiceProvider::class,
 
         /*
          * Repositories
          */
         App\Providers\Repositories\SellerRepositoryProvider::class,
+        App\Providers\Repositories\SaleRepositoryProvider::class,
     ])->toArray(),
 
     /*
