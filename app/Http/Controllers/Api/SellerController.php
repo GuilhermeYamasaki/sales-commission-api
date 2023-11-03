@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\SellerStoreRequest;
 use App\Http\Requests\Api\SellerUpdateRequest;
+use App\Http\Resources\SellerIndexResource;
 use App\Services\Interfaces\SellerServiceInterface;
 use Exception;
 use Illuminate\Http\Response;
@@ -42,7 +43,9 @@ class SellerController extends Controller
         try {
             $sellers = $this->sellerService->getAllSellers();
 
-            return response()->json(['sellers' => $sellers], Response::HTTP_OK);
+            return SellerIndexResource::collection($sellers)
+                ->response()
+                ->setStatusCode(Response::HTTP_OK);
 
         } catch (Exception $exception) {
 

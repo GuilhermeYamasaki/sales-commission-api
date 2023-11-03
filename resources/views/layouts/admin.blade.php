@@ -12,7 +12,6 @@
 <body>
     @yield('content')
     <div id="scripts">
-        @vite('resources/js/app.js')
         @stack('scripts')
     </div>
 </body>

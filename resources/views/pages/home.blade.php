@@ -7,7 +7,7 @@
             <div class="p-4 bg-blue-200 rounded-lg">
                 <div class="text-xl font-semibold mb-2">Vendedores</div>
                 <p>Visualize informações sobre os vendedores.</p>
-                <a href="#" class="mt-4 block text-blue-600 hover:underline">Ver Vendedores</a>
+                <a href="{{ route('sellers.index') }}" class="mt-4 block text-blue-600 hover:underline">Ver Vendedores</a>
             </div>
 
             <div class="p-4 bg-green-200 rounded-lg">
