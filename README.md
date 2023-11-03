@@ -11,7 +11,7 @@
 #### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/GuilhermeYamasaki/api-marketplace
+git clone https://github.com/GuilhermeYamasaki/sales-commission-api.git
 ```
 
 #### 2. Entrar na pasta
