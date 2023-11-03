@@ -8,61 +8,73 @@
 
 ## Passos
 
-#### 1. Clonar o repositório
+#### Clonar o repositório
 
 ```bash
 git clone https://github.com/GuilhermeYamasaki/sales-commission-api.git
 ```
 
-#### 2. Entrar na pasta
+#### Entrar na pasta
 
 ```bash
-cd api-marketplace
+cd sales-commission-api
 ```
 
-#### 3. Baixar dependencias
+#### Baixar dependencias
 
 ```bash
 composer install
 ```
 
-#### 4. Copiar .env 
+#### Copiar .env 
 
 ```bash
 cp .env.example .env
 ```
 
-#### 5. Adicionar alias do Sail
+#### Adicionar alias do Sail
 
 ```bash
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 ```
 
-#### 6. Construir container
+#### Construir container
 
 ```bash
 sail up -d
 ```
 
-#### 7. Rode os testes
+#### Gerar chave criptografada
+
+```bash
+sail artisan key:generate
+```
+
+#### Criar banco de dados
+
+```bash
+sail artisan migrate:fresh --seed
+```
+
+#### Rode os testes
 
 ```bash
 sail artisan test
 ```
 
-#### 8. Baixar dependencias Node
+#### Baixar dependencias Node
 
 ```bash
 sail npm i
 ```
 
-#### 9. Abrir terminal e deixar executando
+#### Abrir terminal e deixar executando
 
 ```bash
 sail artisan queue:work
 ```
 
-#### 10. Abrir outro terminal e deixar executando
+#### Abrir outro terminal e deixar executando
 
 ```bash
 sail npm run dev
