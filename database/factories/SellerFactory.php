@@ -16,9 +16,11 @@ class SellerFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->name();
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => $name,
+            'email' => str($name)->slug('.').'@'.fake()->freeEmailDomain(),
         ];
     }
 }
