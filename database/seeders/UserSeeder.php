@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Administrador',
-            'email' => 'adm@tray.com.br',
+            'email' => config('admin.email'),
             'password' => bcrypt($password),
             'remember_token' => $password,
         ]);
