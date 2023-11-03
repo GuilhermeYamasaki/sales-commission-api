@@ -31,6 +31,16 @@ class SaleRepository implements SaleRepositoryInterface
             ->get();
     }
 
+    public function getSalesOfDay(Carbon $day): Collection
+    {
+        $start = $day->startOfDay()->format('Y-m-d H:i:s');
+        $end = $day->endOfDay()->format('Y-m-d H:i:s');
+
+        return $this->model
+            ->whereBetween('sale_at', [$start, $end])
+            ->get();
+    }
+
     public function getSalesOfDayBySeller(int $sellerId, Carbon $day): Collection
     {
         $start = $day->startOfDay()->format('Y-m-d H:i:s');

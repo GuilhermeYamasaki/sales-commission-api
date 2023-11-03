@@ -11,7 +11,9 @@ interface SaleRepositoryInterface
 
     public function getAllSales(): Collection;
 
-    public function getSalesBySeller(int $id): object;
+    public function getSalesBySeller(int $sellerId): Collection;
+
+    public function getSalesOfDay(Carbon $day): Collection;
 
     public function getSalesOfDayBySeller(int $sellerId, Carbon $day): Collection;
 }

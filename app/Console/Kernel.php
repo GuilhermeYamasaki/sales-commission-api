@@ -25,11 +25,12 @@ class Kernel extends ConsoleKernel
         /**
          * Commands
          */
-        $schedule->command(SendTotalSalesDayOfSellersCommand::class)->dailyAt('03:00');
+        $schedule->command(SendTotalSalesDayOfSellersCommand::class)->dailyAt('00:00');
 
         /**
          * Jobs
          */
+        $schedule->job(SendTotalSalesDayForAdminJob::class)->dailyAt('00:00');
     }
 
     /**
