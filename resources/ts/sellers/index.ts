@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '../helpers/api'
 import Swal from 'sweetalert2'
 
 const routeToGetSellers = document.querySelector('#route') as HTMLInputElement
@@ -6,7 +6,7 @@ const routeToGetSellers = document.querySelector('#route') as HTMLInputElement
 const loadingList = async () => {
     const listElement = document.querySelector('#sellers-list') as HTMLBodyElement
 
-    const { data: sellers } = await axios.get(routeToGetSellers.value)
+    const { data: sellers } = await api.get(routeToGetSellers.value)
 
     const trsTemplate = sellers.data.map((seller: Seller) => {
         return `
@@ -48,7 +48,7 @@ const insertDeleteEvent = () => {
                 }
 
                 const { id: route } = button
-                await axios.delete(route)
+                await api.delete(route)
                 loadingList()
             })
         })
@@ -87,7 +87,7 @@ const insertComissionEvent = () => {
                 }
 
                 const { id: route } = button
-                await axios.patch(route, { day: result.value })
+                await api.patch(route, { day: result.value })
             })
         })
 }

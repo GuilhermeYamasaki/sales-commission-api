@@ -16,5 +16,13 @@
                 <a href="#" class="mt-4 block text-green-600 hover:underline">Ver Vendas</a>
             </div>
         </div>
+        <button id="{{ route('api.auth.destroy') }}"
+            class="logout mt-14 bg-gray-500 text-white text-lg px-4 py-2 rounded-lg hover:bg-gray-600">
+            Sair
+        </button>
     </div>
 @endsection
+
+@push('scripts')
+    @vite('resources/ts/home.ts')
+@endpush
