@@ -18,7 +18,7 @@ class SellerServiceControllerTest extends TestCase
         ];
 
         // Act
-        $this->postJson(route('sellers.store'), $data);
+        $this->postJson(route('api.sellers.store'), $data);
 
         // Assert
         $this->assertDatabaseHas('sellers', $data);
