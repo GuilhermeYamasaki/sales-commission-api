@@ -181,6 +181,7 @@ return [
          */
         App\Providers\Repositories\SellerRepositoryProvider::class,
         App\Providers\Repositories\SaleRepositoryProvider::class,
+        App\Providers\Repositories\UserRepositoryProvider::class,
     ])->toArray(),
 
     /*
