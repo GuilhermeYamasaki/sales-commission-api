@@ -26,7 +26,7 @@ class SendTotalSalesDayOfSellerMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Total de vendas do dia - '.$this->data['day'],
+            subject: 'Relatório do dia '.$this->data['day'],
         );
     }
 

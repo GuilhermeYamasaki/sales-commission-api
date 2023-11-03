@@ -10,6 +10,8 @@ class Seller extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const COMISSION_PERCENT = 8.5;
+
     protected $fillable = [
         'name',
         'email',
@@ -24,5 +26,10 @@ class Seller extends Model
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function getComissionAttribute()
+    {
+        return self::COMISSION_PERCENT;
     }
 }

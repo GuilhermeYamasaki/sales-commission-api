@@ -12,7 +12,6 @@ class SaleRepository implements SaleRepositoryInterface
     public function __construct(
         private readonly Sale $model
     ) {
-
     }
 
     public function register(array $data): object
@@ -27,7 +26,9 @@ class SaleRepository implements SaleRepositoryInterface
 
     public function getSalesBySeller(int $sellerId): Collection
     {
-        return $this->model->where('seller_id', $sellerId)->get();
+        return $this->model
+            ->where('seller_id', $sellerId)
+            ->get();
     }
 
     public function getSalesOfDayBySeller(int $sellerId, Carbon $day): Collection

@@ -18,9 +18,10 @@ class SendTotalSalesDayOfSellerJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(private readonly int $sellerId, private readonly string $day)
-    {
-        //
+    public function __construct(
+        private readonly int $sellerId,
+        private readonly string $day
+    ) {
     }
 
     /**
@@ -33,6 +34,5 @@ class SendTotalSalesDayOfSellerJob implements ShouldQueue
         $mail = new SendTotalSalesDayOfSellerMail($data);
 
         Mail::to($data['seller']->email)->send($mail);
-
     }
 }
